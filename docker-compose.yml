@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    ports:
+      - "8001:5432"
+  app:
+    build: .
+    depends_on:
+      - db
+    tty: true
+
